@@ -1,502 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GxP Regulatory Intelligence — 25 February 2026</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-      background: #F0F2F5;
-      color: #222;
-      line-height: 1.6;
-    }
-    .topbar {
-      background: #1A237E;
-      color: #fff;
-      padding: 14px 32px;
-      font-size: 13px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .topbar-title { font-weight: 700; font-size: 15px; letter-spacing: 0.5px; }
-    .topbar-meta  { opacity: 0.75; }
-    .hero {
-      background: linear-gradient(135deg, #1A237E 0%, #283593 60%, #0097A7 100%);
-      color: #fff;
-      padding: 48px 32px 40px;
-      text-align: center;
-    }
-    .hero h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
-    .hero .week { font-size: 16px; opacity: 0.85; margin-bottom: 16px; }
-    .hero .scope {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      border-radius: 20px;
-      padding: 6px 18px;
-      font-size: 13px;
-    }
-    .summary-bar {
-      background: #fff;
-      border-bottom: 1px solid #e0e0e0;
-      padding: 16px 32px;
-      display: flex;
-      gap: 24px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .stat {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13.5px;
-    }
-    .stat-num {
-      font-size: 22px;
-      font-weight: 800;
-      color: #1A237E;
-    }
-    .stat-label { color: #555; }
-    .badge-gxp {
-      background: #1B5E20; color: #fff;
-      border-radius: 12px; padding: 3px 14px; font-size: 12px; font-weight: 700;
-    }
-    .badge-dig {
-      background: #0D47A1; color: #fff;
-      border-radius: 12px; padding: 3px 14px; font-size: 12px; font-weight: 700;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 32px 20px;
-    }
-    .nav-tabs {
-      display: flex;
-      gap: 4px;
-      margin-bottom: 28px;
-      background: #fff;
-      border-radius: 10px;
-      padding: 6px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-    }
-    .nav-tab {
-      flex: 1;
-      text-align: center;
-      padding: 9px 12px;
-      border-radius: 7px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      color: #555;
-      transition: all 0.15s;
-      border: none;
-      background: transparent;
-      font-family: inherit;
-    }
-    .nav-tab.active {
-      background: #1A237E;
-      color: #fff;
-    }
-    .nav-tab:hover:not(.active) { background: #f0f0f0; }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      color: #999;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-    }
-    footer {
-      text-align: center;
-      padding: 24px;
-      font-size: 11.5px;
-      color: #999;
-      border-top: 1px solid #ddd;
-      margin-top: 20px;
-      background: #fff;
-    }
-    .copy-toast {
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #333;
-      color: #fff;
-      padding: 10px 22px;
-      border-radius: 20px;
-      font-size: 13px;
-      opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
-      z-index: 9999;
-    }
-    .copy-toast.show { opacity: 1; }
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 20px; }
-      .summary-bar { padding: 12px 16px; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GxP Radar — Weekly Regulatory Update — 03 September 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+         background:#f4f6f9; color:#1f2933; line-height:1.6; }
+  header { background:#1a2744; color:#fff; padding:32px 20px 26px; }
+  .wrap { max-width: 960px; margin:0 auto; }
+  header h1 { margin:0 0 6px; font-size:1.9rem; letter-spacing:-.02em; }
+  header p.sub { margin:0 0 16px; color:#b9c4d8; font-size:.95rem; }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; }
+  .chip { color:#fff; font-size:.75rem; font-weight:600; padding:4px 10px; border-radius:999px; }
+  nav.tabs { background:#fff; border-bottom:1px solid #dde3ec; position:sticky; top:0; z-index:5; }
+  nav.tabs .wrap { display:flex; gap:4px; }
+  .tab { background:none; border:none; padding:16px 18px; font-size:.95rem; font-weight:600; color:#5b6675;
+          cursor:pointer; border-bottom:3px solid transparent; font-family:inherit; }
+  .tab.active { color:#1a2744; border-bottom-color:#1a2744; }
+  main { padding:26px 20px 60px; }
+  .panel { display:none; }
+  .panel.active { display:block; }
+  .card { background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:20px 22px; margin-bottom:18px;
+           box-shadow:0 1px 2px rgba(16,24,40,.05); }
+  .card-head { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:10px; }
+  .badge { color:#fff; font-size:.72rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+            padding:4px 10px; border-radius:4px; }
+  .topic { font-size:.72rem; font-weight:600; padding:3px 9px; border:1px solid; border-radius:4px; }
+  .card h3 { margin:0 0 4px; font-size:1.08rem; line-height:1.4; color:#101828; }
+  .date { margin:0 0 12px; font-size:.83rem; color:#667085; font-weight:500; }
+  .summary { margin:0 0 14px; font-size:.94rem; }
+  .bd { background:#f7f9fc; border-left:3px solid #1a2744; border-radius:0 6px 6px 0; padding:12px 14px; }
+  .bd-label { display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+               color:#1a2744; margin-bottom:4px; }
+  .bd p { margin:0; font-size:.9rem; color:#344054; }
+  .post { background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:18px 20px; margin-bottom:18px; }
+  .post-head { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:10px; }
+  .post-head h3 { margin:0; font-size:1rem; color:#101828; }
+  .copy-btn { background:#1a2744; color:#fff; border:none; border-radius:6px; padding:7px 14px; font-size:.8rem;
+               font-weight:600; cursor:pointer; font-family:inherit; white-space:nowrap; }
+  .copy-btn.done { background:#1B5E20; }
+  .post-body { font-size:.92rem; color:#344054; background:#fbfcfe; border:1px solid #eef2f7; border-radius:6px;
+                padding:14px; }
+  .intro { font-size:.9rem; color:#475467; margin:0 0 18px; }
+  footer { background:#1a2744; color:#b9c4d8; padding:24px 20px; font-size:.83rem; }
+  footer a { color:#fff; }
+  @media (max-width:640px) {
+    header h1 { font-size:1.45rem; }
+    .tab { padding:14px 12px; font-size:.86rem; }
+    .card, .post { padding:16px; }
+    .post-head { flex-direction:column; }
+  }
+</style>
 </head>
 <body>
-
-<div class="topbar">
-  <span class="topbar-title">GxP Regulatory Intelligence</span>
-  <span class="topbar-meta">Generated 25 February 2026 &nbsp;|&nbsp; Confidential — internal use only</span>
-</div>
-
-<div class="hero">
-  <h1>GxP Regulatory Intelligence Report</h1>
-  <div class="week">Week 16 – 25 February 2026</div>
-  <div class="scope">
-    FDA &nbsp;·&nbsp; EMA &nbsp;·&nbsp; ICH &nbsp;·&nbsp; EU Commission / EudraLex
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    GxP & Quality Systems &nbsp;·&nbsp; Digital & Data Integrity
+<header>
+  <div class="wrap">
+    <h1>GxP Radar</h1>
+    <p class="sub">Weekly regulatory intelligence for pharma, biotech &amp; medical devices &middot; Thursday 03 September 2026 &middot; 10 updates</p>
+    <div class="chips"><span class="chip" style="background:#0D47A1">FDA: 5</span><span class="chip" style="background:#8B1A1A">EU Commission: 1</span><span class="chip" style="background:#1B5E20">EMA: 1</span><span class="chip" style="background:#4A148C">ICH: 1</span><span class="chip" style="background:#00695C">EDQM / Ph. Eur.: 1</span><span class="chip" style="background:#E65100">USP: 1</span></div>
   </div>
-</div>
+</header>
 
-<div class="summary-bar">
-  <div class="stat">
-    <span class="stat-num">11</span>
-    <span class="stat-label">updates this week</span>
+<nav class="tabs">
+  <div class="wrap">
+    <button class="tab active" data-panel="updates" type="button">&#128203; Regulatory Updates</button>
+    <button class="tab" data-panel="posts" type="button">&#128188; LinkedIn Posts</button>
   </div>
-  <div style="flex:1;font-size:13px;color:#444;">
-    February 2026 is an exceptionally active regulatory month: FDA QMSR and CSA final
-    guidances both effective, EMA opened Annex 15 consultation, ICH adopted M15 and
-    published M4Q(R2) updates, and the landmark FDA/EMA joint AI principles are reshaping
-    digital compliance expectations globally.
+</nav>
+
+<main>
+  <div class="wrap">
+    <section class="panel active" id="updates">
+      <p class="intro">Scan covering FDA, EMA, ICH, the EU Commission / EudraLex, EDQM and USP. Each item carries its actual publication or status date — several are open consultations or pending finals rather than items published in the last seven days.</p>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="badge" style="background:#8B1A1A">EU Commission</span>
+          <span class="topic" style="border-color:#0b5563;color:#0b5563">Digital &amp; Data Integrity</span>
+        </div>
+        <h3>EudraLex Vol. 4: Annex 11 (Computerised Systems), new Annex 22 (AI) and Chapter 4 (Documentation) — final texts still pending</h3>
+        <p class="date">Status check, 3 Sep 2026 (drafts 7 Jul 2025; consultation closed 7 Oct 2025)</p>
+        <p class="summary">The three linked EudraLex Volume 4 documents remain the biggest open item on the European GxP calendar. Annex 11 grows from 5 to roughly 19 pages across 17 sections, adding lifecycle validation, supplier oversight, identity and access management, audit trail review and — for the first time — cybersecurity as an explicit GMP requirement. New Annex 22 covers AI/ML in GMP: model selection, training, validation and performance monitoring, restricted to static deterministic models, with adaptive and generative models excluded from GMP-critical decisions. Revised Chapter 4 puts data governance and risk management at the centre of documentation, paper and electronic alike. Final publication has been signalled for 2026 but was not yet in the Official Journal as of this scan.</p>
+        <div class="bd">
+          <span class="bd-label">BD angle</span>
+          <p>This is the single strongest door-opener in the European market right now. Every client running MES, LIMS, ERP, chromatography data systems or eBR faces a re-baselining exercise the moment the final text lands. Sellable work: Annex 11 gap assessments against the draft, CSV-to-CSA transition roadmaps, audit trail review programmes, supplier/cloud qualification frameworks, cybersecurity-in-GMP assessments, and an AI inventory plus Annex 22 readiness review. Position now, before the final text drops — clients who wait will need it fast and will pay for speed.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="badge" style="background:#1B5E20">EMA</span>
+          <span class="topic" style="border-color:#5d4037;color:#5d4037">Lab Equipment Qualification &amp; Validation</span>
+        </div>
+        <h3>Concept paper on the targeted revision of EU GMP Annex 15 (Qualification and Validation)</h3>
+        <p class="date">Published 19 Jan 2026 — consultation 9 Feb to 9 Apr 2026; first draft expected end 2026</p>
+        <p class="summary">The EMA GMP/GDP Inspectors Working Group and PIC/S published a joint concept paper for a targeted revision of Annex 15. The headline change: application to active substance manufacturers becomes mandatory rather than optional, extending qualification and validation expectations to chemical and biological API sites. The revision also aligns Annex 15 with ICH Q9(R1) quality risk management. The driver is explicitly the sartan/nitrosamine &#x27;lessons learnt&#x27; report, which found weaknesses in process and product knowledge, validation practice, change control and contamination control at API manufacturers. A first draft is planned for the end of 2026.</p>
+        <div class="bd">
+          <span class="bd-label">BD angle</span>
+          <p>API and intermediate manufacturers — a large slice of the Belgian and wider European chemical-pharma base — have historically run lighter qualification systems than finished-dose sites. They now have roughly 18 months to close that gap. Offer: readiness assessments against Annex 15 for API sites, requalification and periodic review programmes, cleaning validation and lifecycle process validation build-outs, and IQ/OQ/PQ documentation remediation. Pair with ICH Q9(R1) risk-management training to make it a programme rather than a one-off audit.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="badge" style="background:#0D47A1">FDA</span>
+          <span class="topic" style="border-color:#1a2744;color:#1a2744">GxP &amp; Quality Systems</span>
+        </div>
+        <h3>Draft guidance: Container Closure Systems for Human Drugs and Biological Products</h3>
+        <p class="date">Announced 14 Aug 2026 (CDER/CBER/OCP, August 2026)</p>
+        <p class="summary">FDA announced a new draft guidance on container closure systems that, once final, will supersede the 1999 guidance &#x27;Container Closure Systems for Packaging Human Drugs and Biologics&#x27; and the related 2002 Q&amp;A document. It modernises expectations for CCS selection, qualification, extractables and leachables strategy, and the supporting CMC documentation for drugs and biologics, including parenteral presentations.</p>
+        <div class="bd">
+          <span class="bd-label">BD angle</span>
+          <p>A 27-year-old guidance being replaced forces every packaging and CMC dossier owner to re-check their justification files. Consulting angles: CCS qualification strategy, extractables/leachables study design and gap review, comparability packages for packaging changes, and CMC dossier updates. Naturally bundles with analytical method work and stability programmes — a good cross-sell into QC labs.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="badge" style="background:#0D47A1">FDA</span>
+          <span class="topic" style="border-color:#1a2744;color:#1a2744">GxP &amp; Quality Systems</span>
+        </div>
+        <h3>Draft guidance: Potency Assessment of Active Immunotherapy Products</h3>
+        <p class="date">CBER, August 2026</p>
+        <p class="summary">CBER issued draft guidance on potency assurance for active immunotherapy products, addressing the design of potency assay strategies across the product lifecycle, matrix approaches, and the link between potency measurement and mechanism of action for complex biological products.</p>
+        <div class="bd">
+          <span class="bd-label">BD angle</span>
+          <p>Directly relevant to the ATMP and immuno-oncology cluster around Leuven, Ghent and Wallonia. Sellable work: potency assay strategy and lifecycle plans, analytical method development, validation and transfer under ICH Q2(R2)/Q14, and comparability protocols. High-value, scarce-expertise work with strong day-rate potential.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="badge" style="background:#0D47A1">FDA</span>
+          <span class="topic" style="border-color:#1a2744;color:#1a2744">GxP &amp; Quality Systems</span>
+        </div>
+        <h3>Final guidance: Frequently Asked Questions — Developing Potential Cellular and Gene Therapy Products</h3>
+        <p class="date">CBER, August 2026</p>
+        <p class="summary">CBER finalised a consolidated Q&amp;A guidance for cell and gene therapy developers, covering common questions on product development, CMC expectations and interaction with the agency across the IND-to-BLA pathway.</p>
+        <div class="bd">
+          <span class="bd-label">BD angle</span>
+          <p>Useful as a conversation starter with early-stage CGT biotechs that are scaling from academic process to GMP. Offer: CMC readiness reviews, GMP-transition support, tech transfer, and QP/QA interim resourcing. These clients rarely have in-house depth and prefer consultancy over hiring.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="badge" style="background:#0D47A1">FDA</span>
+          <span class="topic" style="border-color:#0b5563;color:#0b5563">Digital &amp; Data Integrity</span>
+        </div>
+        <h3>Computer Software Assurance for Production and Quality System Software — final guidance, February 2026 revision now in force</h3>
+        <p class="date">Final 24 Sep 2025; updated version issued 3 Feb 2026 (QMSR alignment)</p>
+        <p class="summary">FDA&#x27;s CSA guidance replaces exhaustive test-script validation with a risk-based, intended-use-driven assurance model for software used in medical device production and the quality system. The February 2026 revision aligns the text with the Quality Management System Regulation (QMSR), effective 2 February 2026, which incorporates ISO 13485:2016 by reference into 21 CFR 820. Higher process risk warrants rigorous testing; lower risk can be covered with leaner, unscripted methods and lighter records.</p>
+        <div class="bd">
+          <span class="bd-label">BD angle</span>
+          <p>Medtech clients now face two simultaneous shifts — QMSR transition and CSA adoption — and most have not rewritten their validation SOPs for either. Offer a combined package: CSA/QMSR gap assessment, rewrite of the validation master plan and software risk framework, retrospective rationalisation of legacy validation packages, and training for QA and IT. The value story is easy to sell: measurably less documentation effort per system.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="badge" style="background:#4A148C">ICH</span>
+          <span class="topic" style="border-color:#1a2744;color:#1a2744">GxP &amp; Quality Systems</span>
+        </div>
+        <h3>ICH E6(R3) Good Clinical Practice — Annex 2 adopted and published; consolidated guideline finalised</h3>
+        <p class="date">Consolidated guideline June 2026; Annex 2 adopted July 2026</p>
+        <p class="summary">The E6(R3) modernisation of GCP is now complete with the adoption of Annex 2, which covers non-traditional trial designs — decentralised elements, real-world data sources and digital health technologies. The consolidated Step 4 guideline was finalised in June 2026. E6(R3) embeds quality-by-design, proportionate risk-based monitoring and ICH Q9/Q10-style quality management into clinical trial conduct, with substantially strengthened expectations around data governance and the reliability of electronic clinical data.</p>
+        <div class="bd">
+          <span class="bd-label">BD angle</span>
+          <p>Sponsors, CROs and sites all need to re-write SOPs, retrain staff and re-map their computerised system inventory for GCP. Offer: E6(R3) gap assessments, SOP rewriting, risk-based monitoring design, vendor oversight frameworks, and — the crossover with Annex 11 — validation of DCT platforms, ePRO and eConsent systems. Belgium&#x27;s dense early-phase clinical trial ecosystem makes this a strong local play.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="badge" style="background:#00695C">EDQM / Ph. Eur.</span>
+          <span class="topic" style="border-color:#5d4037;color:#5d4037">Lab Equipment Qualification &amp; Validation</span>
+        </div>
+        <h3>New draft chapter 3.3.9 — Prefillable plastic syringes for liquid preparations for injection (Pharmeuropa 38.3)</h3>
+        <p class="date">Draft in Pharmeuropa 38.3 — comments due 30 Sep 2026</p>
+        <p class="summary">EDQM published a proposed new Ph. Eur. general chapter 3.3.9 covering prefillable plastic syringes intended to remain in contact with the medicinal product throughout shelf life. It addresses the syringe barrel with Luer connector and tip cap or staked needle with shield, and the plunger (stopper and rod), setting material and testing expectations for this container type. The comment deadline is 30 September 2026 — an open action for the next four weeks.</p>
+        <div class="bd">
+          <span class="bd-label">BD angle</span>
+          <p>Immediate, dated action: any client with prefilled syringe presentations should review and comment before 30 September. That is a legitimate, time-bound reason to call. Follow-on work: analytical testing strategy against the new chapter, method development and validation, container qualification, and — because most PFS testing runs in QC labs — instrument qualification and method transfer support.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="badge" style="background:#E65100">USP</span>
+          <span class="topic" style="border-color:#5d4037;color:#5d4037">Lab Equipment Qualification &amp; Validation</span>
+        </div>
+        <h3>Proposed revision of USP &lt;1058&gt;, renamed &#x27;Analytical Instrument and System Qualification&#x27;</h3>
+        <p class="date">Proposed in Pharmacopeial Forum 51(2); comment period closed 31 May 2025 — revision pending</p>
+        <p class="summary">The proposed revision reframes AIQ as AISQ — an assurance journey across the full operational life of an instrument or system, from specification and qualification through to retirement, rather than a discrete qualification event. Notably, the provision on combining qualification documents present in the current chapter (and echoed in Annex 15 clause 2.5) does not appear in the updated draft, which has practical consequences for how QC labs structure IQ/OQ/PQ documentation.</p>
+        <div class="bd">
+          <span class="bd-label">BD angle</span>
+          <p>Combined with the Annex 15 revision, this makes 2026-2027 a genuine refresh cycle for laboratory qualification. Offer QC labs: an instrument inventory and risk classification, redesign of the IQ/OQ/PQ documentation set, periodic review and requalification programmes, and vendor qualification-package assessment. This is repeatable, scalable delivery work — ideal for placing a team rather than a single consultant.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="badge" style="background:#0D47A1">FDA</span>
+          <span class="topic" style="border-color:#0b5563;color:#0b5563">Digital &amp; Data Integrity</span>
+        </div>
+        <h3>Enforcement trend: laboratory data integrity remains the leading warning letter theme</h3>
+        <p class="date">Recent examples: warning letter dated 14 May 2026 (US site); 10 Apr 2026 (French site)</p>
+        <p class="summary">Recent FDA warning letters continue to cluster around QC laboratory data governance. One May 2026 letter cited interlinked failures: insufficient incoming-material testing, absent stability data to justify expiry, and weak data integrity and quality unit oversight — including an uncontrolled instrument password on a sticker attached to a laptop and analytical data automatically deleted at shutdown, leaving no evidence of quality unit review. A French site received a warning letter in April 2026 following a September 2025 inspection.</p>
+        <div class="bd">
+          <span class="bd-label">BD angle</span>
+          <p>Warning letters are the most persuasive sales material in this field because they are concrete and public. Use them in a short data integrity health-check offer: audit trail configuration and review, access and password governance, backup and archival verification, and data lifecycle mapping for QC instruments. Also flags a remediation market — companies under a warning letter buy fast and rarely negotiate hard on rate.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel" id="posts">
+      <p class="intro">Draft posts written in a considered, non-salesy voice. Edit freely before publishing.</p>
+
+      <article class="post">
+        <div class="post-head">
+          <h3>Annex 11 / Annex 22 — the clock is running</h3>
+          <button class="copy-btn" data-idx="0" type="button">Copy</button>
+        </div>
+        <div class="post-body" id="post-0" data-text="Annex 11 is going from 5 pages to roughly 19. Seventeen sections. Cybersecurity written into GMP for the first time. And alongside it, Annex 22 — the first European GMP text dedicated to AI in manufacturing.
+
+The drafts have been public since July 2025. The final texts are expected this year.
+
+Here is what I keep hearing from quality leads: &quot;we will look at it when it is final.&quot;
+
+That is understandable, and it is also the expensive option. The gap assessment does not change much between draft and final. What changes is how much time you have to close the gaps you find — and how many consultants are still available when everyone starts at once.
+
+If your MES, LIMS or CDS landscape has not been mapped against the draft yet, that is a two-week exercise today and a six-month scramble later.
+
+Who is already running the gap assessment? Curious how far along the industry really is.
+
+#GMP #Annex11 #Annex22 #DataIntegrity #PharmaQuality">Annex 11 is going from 5 pages to roughly 19. Seventeen sections. Cybersecurity written into GMP for the first time. And alongside it, Annex 22 — the first European GMP text dedicated to AI in manufacturing.<br><br>The drafts have been public since July 2025. The final texts are expected this year.<br><br>Here is what I keep hearing from quality leads: &quot;we will look at it when it is final.&quot;<br><br>That is understandable, and it is also the expensive option. The gap assessment does not change much between draft and final. What changes is how much time you have to close the gaps you find — and how many consultants are still available when everyone starts at once.<br><br>If your MES, LIMS or CDS landscape has not been mapped against the draft yet, that is a two-week exercise today and a six-month scramble later.<br><br>Who is already running the gap assessment? Curious how far along the industry really is.<br><br>#GMP #Annex11 #Annex22 #DataIntegrity #PharmaQuality</div>
+      </article>
+
+      <article class="post">
+        <div class="post-head">
+          <h3>Annex 15 revision — API manufacturers, this one is for you</h3>
+          <button class="copy-btn" data-idx="1" type="button">Copy</button>
+        </div>
+        <div class="post-body" id="post-1" data-text="A detail in the Annex 15 concept paper that deserves more attention than it is getting:
+
+Qualification and validation are becoming mandatory for active substance manufacturers. Until now, Annex 15 was optional for them.
+
+The driver is not abstract. It traces straight back to the sartan and nitrosamine investigations, where the lessons-learnt report found gaps in process knowledge, validation practice, change control and contamination control at API sites.
+
+Consultation closed in April. A first draft is expected by the end of the year.
+
+For finished-dose manufacturers this is a modest update. For API and intermediate producers it can mean building a qualification lifecycle from a much lighter starting point — cleaning validation, requalification, periodic review, the full set.
+
+If you make active substances in Europe, the honest question is: would your current validation file survive an inspector reading it against Annex 15 rather than against ICH Q7?
+
+#GMP #Annex15 #Validation #API #QualityRiskManagement">A detail in the Annex 15 concept paper that deserves more attention than it is getting:<br><br>Qualification and validation are becoming mandatory for active substance manufacturers. Until now, Annex 15 was optional for them.<br><br>The driver is not abstract. It traces straight back to the sartan and nitrosamine investigations, where the lessons-learnt report found gaps in process knowledge, validation practice, change control and contamination control at API sites.<br><br>Consultation closed in April. A first draft is expected by the end of the year.<br><br>For finished-dose manufacturers this is a modest update. For API and intermediate producers it can mean building a qualification lifecycle from a much lighter starting point — cleaning validation, requalification, periodic review, the full set.<br><br>If you make active substances in Europe, the honest question is: would your current validation file survive an inspector reading it against Annex 15 rather than against ICH Q7?<br><br>#GMP #Annex15 #Validation #API #QualityRiskManagement</div>
+      </article>
+
+      <article class="post">
+        <div class="post-head">
+          <h3>Data integrity: still the same findings, ten years on</h3>
+          <button class="copy-btn" data-idx="2" type="button">Copy</button>
+        </div>
+        <div class="post-body" id="post-2" data-text="From a recent FDA warning letter:
+
+An instrument password written on a sticker, stuck to the laptop.
+Analytical data automatically deleted when the laptop shut down.
+No record that the quality unit ever reviewed it.
+
+We have been talking about ALCOA+ since 2016. Ten years of guidance, training and conference tracks. And the findings still look like this.
+
+My read is that it is rarely a knowledge problem. People know the principle. What is missing is the boring layer underneath: who owns the audit trail review, how access is provisioned and removed, whether anyone has actually tested that the backup restores.
+
+Those are not glamorous projects. They are also the ones that keep a site off the import alert list.
+
+A one-day walkthrough of a QC lab usually finds three of these within the first hour. It is worth the day.
+
+#DataIntegrity #GMP #QualityControl #ALCOA #Pharma">From a recent FDA warning letter:<br><br>An instrument password written on a sticker, stuck to the laptop.<br>Analytical data automatically deleted when the laptop shut down.<br>No record that the quality unit ever reviewed it.<br><br>We have been talking about ALCOA+ since 2016. Ten years of guidance, training and conference tracks. And the findings still look like this.<br><br>My read is that it is rarely a knowledge problem. People know the principle. What is missing is the boring layer underneath: who owns the audit trail review, how access is provisioned and removed, whether anyone has actually tested that the backup restores.<br><br>Those are not glamorous projects. They are also the ones that keep a site off the import alert list.<br><br>A one-day walkthrough of a QC lab usually finds three of these within the first hour. It is worth the day.<br><br>#DataIntegrity #GMP #QualityControl #ALCOA #Pharma</div>
+      </article>
+
+      <article class="post">
+        <div class="post-head">
+          <h3>Two deadlines worth putting in the diary</h3>
+          <button class="copy-btn" data-idx="3" type="button">Copy</button>
+        </div>
+        <div class="post-body" id="post-3" data-text="Two dated items on the European GxP calendar that are easy to miss in September:
+
+30 September 2026 — comments close on the new draft Ph. Eur. chapter 3.3.9 on prefillable plastic syringes. If you have a PFS presentation, this chapter will shape your testing strategy. Commenting is free; being surprised by the final text is not.
+
+End of 2026 — first draft of the revised Annex 15 expected, extending mandatory qualification and validation to active substance manufacturers.
+
+Add to that the pending Annex 11, Annex 22 and Chapter 4 finals, and the proposed USP &lt;1058&gt; revision reframing instrument qualification as a lifecycle rather than an event.
+
+It is shaping up to be a genuine refresh cycle for laboratory and computerised system compliance — the first real one since 2011.
+
+Worth planning your 2027 budget around, rather than reacting to.
+
+#GMP #PhEur #USP1058 #Qualification #RegulatoryAffairs">Two dated items on the European GxP calendar that are easy to miss in September:<br><br>30 September 2026 — comments close on the new draft Ph. Eur. chapter 3.3.9 on prefillable plastic syringes. If you have a PFS presentation, this chapter will shape your testing strategy. Commenting is free; being surprised by the final text is not.<br><br>End of 2026 — first draft of the revised Annex 15 expected, extending mandatory qualification and validation to active substance manufacturers.<br><br>Add to that the pending Annex 11, Annex 22 and Chapter 4 finals, and the proposed USP &lt;1058&gt; revision reframing instrument qualification as a lifecycle rather than an event.<br><br>It is shaping up to be a genuine refresh cycle for laboratory and computerised system compliance — the first real one since 2011.<br><br>Worth planning your 2027 budget around, rather than reacting to.<br><br>#GMP #PhEur #USP1058 #Qualification #RegulatoryAffairs</div>
+      </article>
+    </section>
   </div>
-  <span class="badge-gxp">GxP & Quality: 11</span>
-  <span class="badge-dig">Digital & Data Integrity: 3</span>
-</div>
-
-<div class="container">
-
-  <!-- UPDATES -->
-  <div id="tab-updates">
-    <div class="section-label">Regulatory updates by source</div>
-    
-    <div style="margin-bottom:36px;">
-      <div style="background:#E3F0FC;border-radius:8px;padding:10px 18px;margin-bottom:16px;
-                  border-left:5px solid #0D47A1;">
-        <span style="font-size:17px;font-weight:800;color:#0D47A1;">FDA</span>
-        <span style="font-size:13px;color:#666;margin-left:10px;">3 updates</span>
-      </div>
-      
-        <div style="background:#fff;border-radius:8px;padding:18px 22px;margin-bottom:14px;
-                    border-left:4px solid #0D47A1;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="font-size:15px;font-weight:700;color:#0D47A1;margin-bottom:6px;">
-            FDA & EMA — Joint 'Guiding Principles of Good AI Practice in Drug Development'
-          </div>
-          <div style="margin-bottom:8px;">
-            <span style="font-size:12px;color:#666;margin-right:14px;">📅 14 Jan 2026</span>
-            <span style="background:#0D47A1;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-right:6px;">Digital & Data Integrity</span><span style="background:#1B5E20;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-right:6px;">GxP & Quality</span>
-          </div>
-          <div style="font-size:13.5px;color:#333;line-height:1.65;margin-bottom:10px;">
-            FDA and EMA jointly released ten guiding principles for responsible AI use across the medicines lifecycle, covering early research, clinical trials, manufacturing, and post-market safety surveillance. Key themes: human-centric design, fitness for purpose, risk-based validation, multi-disciplinary expertise, and robust data governance. Addresses 'shadow use' of LLMs and mandates continuous monitoring for data drift. Applies to sponsors, CROs, CMOs, software vendors, and data partners.
-          </div>
-          <div style="background:#FFFBF0;border-radius:6px;padding:10px 14px;margin-bottom:10px;
-                      border-left:3px solid #F9A825;">
-            <span style="font-size:12px;font-weight:700;color:#B7710A;">💼 BD Angle: </span>
-            <span style="font-size:12.5px;color:#7A5000;font-style:italic;">Pitch AI governance assessments, SOP development, and validation strategy to any client deploying AI/ML tools in regulated workflows.</span>
-          </div>
-          <div>
-            <a href="https://www.ema.europa.eu/en/news/ema-fda-set-common-principles-ai-medicine-development-0" target="_blank"
-               style="font-size:12px;color:#1976D2;text-decoration:none;">
-              🔗 https://www.ema.europa.eu/en/news/ema-fda-set-common-principles-ai-medicine-development-0
-            </a>
-          </div>
-        </div>
-        <div style="background:#fff;border-radius:8px;padding:18px 22px;margin-bottom:14px;
-                    border-left:4px solid #0D47A1;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="font-size:15px;font-weight:700;color:#0D47A1;margin-bottom:6px;">
-            Computer Software Assurance (CSA) — Final Guidance issued
-          </div>
-          <div style="margin-bottom:8px;">
-            <span style="font-size:12px;color:#666;margin-right:14px;">📅 03 Feb 2026</span>
-            <span style="background:#0D47A1;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-right:6px;">Digital & Data Integrity</span><span style="background:#1B5E20;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-right:6px;">GxP & Quality</span>
-          </div>
-          <div style="font-size:13.5px;color:#333;line-height:1.65;margin-bottom:10px;">
-            FDA issued the final guidance on Computer Software Assurance for Production and Quality Management System Software. Supersedes the 2002 General Principles of Software Validation, shifting from rigid CSV to a risk-based assurance model. Vendor certifications (ISO, SOC) and digital audit trails can reduce manual documentation burden.
-          </div>
-          <div style="background:#FFFBF0;border-radius:6px;padding:10px 14px;margin-bottom:10px;
-                      border-left:3px solid #F9A825;">
-            <span style="font-size:12px;font-weight:700;color:#B7710A;">💼 BD Angle: </span>
-            <span style="font-size:12.5px;color:#7A5000;font-style:italic;">CSA gap assessments are high-demand right now. All clients running QMS, MES, LIMS, or EBR software need to revisit their approach.</span>
-          </div>
-          <div>
-            <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/computer-software-assurance-production-and-quality-system-software" target="_blank"
-               style="font-size:12px;color:#1976D2;text-decoration:none;">
-              🔗 https://www.fda.gov/regulatory-information/search-fda-guidance-documents/computer-software-assurance-production-and-quality-system-software
-            </a>
-          </div>
-        </div>
-        <div style="background:#fff;border-radius:8px;padding:18px 22px;margin-bottom:14px;
-                    border-left:4px solid #0D47A1;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="font-size:15px;font-weight:700;color:#0D47A1;margin-bottom:6px;">
-            QMSR (21 CFR Part 820) — Effective Feb 2, 2026 + New Inspection Programme CP 7382.850
-          </div>
-          <div style="margin-bottom:8px;">
-            <span style="font-size:12px;color:#666;margin-right:14px;">📅 02 Feb 2026</span>
-            <span style="background:#1B5E20;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-right:6px;">GxP & Quality</span>
-          </div>
-          <div style="font-size:13.5px;color:#333;line-height:1.65;margin-bottom:10px;">
-            FDA's new Quality Management System Regulation for medical devices became effective February 2, 2026, incorporating ISO 13485:2016 by reference. The 15-subpart QSR is now 2 subparts; DMR/DHR/DHF replaced by a unified Medical Device File. New risk-based inspection compliance programme CP 7382.850 replaces QSIT.
-          </div>
-          <div style="background:#FFFBF0;border-radius:6px;padding:10px 14px;margin-bottom:10px;
-                      border-left:3px solid #F9A825;">
-            <span style="font-size:12px;font-weight:700;color:#B7710A;">💼 BD Angle: </span>
-            <span style="font-size:12.5px;color:#7A5000;font-style:italic;">Urgent BD opportunity for medical device clients: QMSR gap analysis, ISO 13485 alignment, and inspection readiness.</span>
-          </div>
-          <div>
-            <a href="https://www.ropesgray.com/en/insights/alerts/2026/02/a-qmsr-state-of-mind-fda-adopts-new-inspection-approach-for-medical-devices" target="_blank"
-               style="font-size:12px;color:#1976D2;text-decoration:none;">
-              🔗 https://www.ropesgray.com/en/insights/alerts/2026/02/a-qmsr-state-of-mind-fda-adopts-new-inspection-approach-for-medical-devices
-            </a>
-          </div>
-        </div>
-    </div>
-    <div style="margin-bottom:36px;">
-      <div style="background:#E8F5E9;border-radius:8px;padding:10px 18px;margin-bottom:16px;
-                  border-left:5px solid #1B5E20;">
-        <span style="font-size:17px;font-weight:800;color:#1B5E20;">EMA</span>
-        <span style="font-size:13px;color:#666;margin-left:10px;">3 updates</span>
-      </div>
-      
-        <div style="background:#fff;border-radius:8px;padding:18px 22px;margin-bottom:14px;
-                    border-left:4px solid #1B5E20;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="font-size:15px;font-weight:700;color:#1B5E20;margin-bottom:6px;">
-            Annex 15 (Qualification & Validation) — Major revision, consultation open until Apr 9, 2026
-          </div>
-          <div style="margin-bottom:8px;">
-            <span style="font-size:12px;color:#666;margin-right:14px;">📅 09 Feb 2026</span>
-            <span style="background:#1B5E20;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-right:6px;">GxP & Quality</span>
-          </div>
-          <div style="font-size:13.5px;color:#333;line-height:1.65;margin-bottom:10px;">
-            EMA opened a 2-month public consultation proposing major revision of EudraLex Volume 4 Annex 15. Key proposals: mandatory scope extended to API manufacturers; URS required as formal starting point; FAT/SAT explicitly incorporated; alignment with ICH Q9(R1); harmonisation with PIC/S.
-          </div>
-          <div style="background:#FFFBF0;border-radius:6px;padding:10px 14px;margin-bottom:10px;
-                      border-left:3px solid #F9A825;">
-            <span style="font-size:12px;font-weight:700;color:#B7710A;">💼 BD Angle: </span>
-            <span style="font-size:12.5px;color:#7A5000;font-style:italic;">API and contract manufacturing clients are directly in scope. Help clients draft consultation responses — positions your centre as a regulatory affairs partner.</span>
-          </div>
-          <div>
-            <a href="https://www.europeanpharmaceuticalreview.com/news/271201/ema-annex-15-gmp-revisions/" target="_blank"
-               style="font-size:12px;color:#1976D2;text-decoration:none;">
-              🔗 https://www.europeanpharmaceuticalreview.com/news/271201/ema-annex-15-gmp-revisions/
-            </a>
-          </div>
-        </div>
-        <div style="background:#fff;border-radius:8px;padding:18px 22px;margin-bottom:14px;
-                    border-left:4px solid #1B5E20;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="font-size:15px;font-weight:700;color:#1B5E20;margin-bottom:6px;">
-            Annex 3 (Radiopharmaceuticals) — Public consultation closed Feb 15, 2026
-          </div>
-          <div style="margin-bottom:8px;">
-            <span style="font-size:12px;color:#666;margin-right:14px;">📅 15 Feb 2026</span>
-            <span style="background:#1B5E20;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-right:6px;">GxP & Quality</span>
-          </div>
-          <div style="font-size:13.5px;color:#333;line-height:1.65;margin-bottom:10px;">
-            Public consultation on revision of EudraLex Volume 4 Annex 3 closed February 15, 2026. The revision covers areas not addressed in the 2008 version and supports innovative manufacturing and control approaches for radiopharmaceuticals.
-          </div>
-          <div style="background:#FFFBF0;border-radius:6px;padding:10px 14px;margin-bottom:10px;
-                      border-left:3px solid #F9A825;">
-            <span style="font-size:12px;font-weight:700;color:#B7710A;">💼 BD Angle: </span>
-            <span style="font-size:12.5px;color:#7A5000;font-style:italic;">Relevant for clients in nuclear medicine or radiopharmaceutical manufacturing.</span>
-          </div>
-          <div>
-            <a href="https://www.ema.europa.eu/en/documents/scientific-guideline/concept-paper-revision-annex-3-guidelines-good-manufacturing-practice-radiopharmaceuticals_en.pdf" target="_blank"
-               style="font-size:12px;color:#1976D2;text-decoration:none;">
-              🔗 https://www.ema.europa.eu/en/documents/scientific-guideline/concept-paper-revision-annex-3-guidelines-good-manufacturing-practice-radiopharmaceuticals_en.pdf
-            </a>
-          </div>
-        </div>
-        <div style="background:#fff;border-radius:8px;padding:18px 22px;margin-bottom:14px;
-                    border-left:4px solid #1B5E20;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="font-size:15px;font-weight:700;color:#1B5E20;margin-bottom:6px;">
-            EudraLex Annex 11 revision + new Annex 22 (AI in GMP) — consultation ongoing
-          </div>
-          <div style="margin-bottom:8px;">
-            <span style="font-size:12px;color:#666;margin-right:14px;">📅 Ongoing — final expected Summer 2026</span>
-            <span style="background:#0D47A1;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-right:6px;">Digital & Data Integrity</span><span style="background:#1B5E20;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-right:6px;">GxP & Quality</span>
-          </div>
-          <div style="font-size:13.5px;color:#333;line-height:1.65;margin-bottom:10px;">
-            The European Commission is overhauling Annex 11 (Computerised Systems, last revised 2011) and introducing brand-new Annex 22 dedicated to AI in GMP manufacturing. Covers cloud, agile development, and data integrity. Chapter 4 (Documentation) also in scope.
-          </div>
-          <div style="background:#FFFBF0;border-radius:6px;padding:10px 14px;margin-bottom:10px;
-                      border-left:3px solid #F9A825;">
-            <span style="font-size:12px;font-weight:700;color:#B7710A;">💼 BD Angle: </span>
-            <span style="font-size:12.5px;color:#7A5000;font-style:italic;">Biggest digital compliance shift in the EU since Annex 11 was issued. Clients running QMS, MES, LIMS or EBR need a readiness assessment now.</span>
-          </div>
-          <div>
-            <a href="https://health.ec.europa.eu/consultations/stakeholders-consultation-eudralex-volume-4-good-manufacturing-practice-guidelines-chapter-4-annex_en" target="_blank"
-               style="font-size:12px;color:#1976D2;text-decoration:none;">
-              🔗 https://health.ec.europa.eu/consultations/stakeholders-consultation-eudralex-volume-4-good-manufacturing-practice-guidelines-chapter-4-annex_en
-            </a>
-          </div>
-        </div>
-    </div>
-    <div style="margin-bottom:36px;">
-      <div style="background:#F3E5F5;border-radius:8px;padding:10px 18px;margin-bottom:16px;
-                  border-left:5px solid #4A148C;">
-        <span style="font-size:17px;font-weight:800;color:#4A148C;">ICH</span>
-        <span style="font-size:13px;color:#666;margin-left:10px;">3 updates</span>
-      </div>
-      
-        <div style="background:#fff;border-radius:8px;padding:18px 22px;margin-bottom:14px;
-                    border-left:4px solid #4A148C;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="font-size:15px;font-weight:700;color:#4A148C;margin-bottom:6px;">
-            ICH M15 (Model-Informed Drug Development) — adopted Feb 9, 2026
-          </div>
-          <div style="margin-bottom:8px;">
-            <span style="font-size:12px;color:#666;margin-right:14px;">📅 09 Feb 2026</span>
-            <span style="background:#1B5E20;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-right:6px;">GxP & Quality</span>
-          </div>
-          <div style="font-size:13.5px;color:#333;line-height:1.65;margin-bottom:10px;">
-            The harmonised ICH M15 Guideline on General Principles for Model-Informed Drug Development was officially adopted on 9 February 2026. Uses PK/PD and disease models to optimise drug development decisions and regulatory submissions across ICH member regions.
-          </div>
-          <div style="background:#FFFBF0;border-radius:6px;padding:10px 14px;margin-bottom:10px;
-                      border-left:3px solid #F9A825;">
-            <span style="font-size:12px;font-weight:700;color:#B7710A;">💼 BD Angle: </span>
-            <span style="font-size:12.5px;color:#7A5000;font-style:italic;">Relevant for early-phase biotech and pharma clients investing in modelling and simulation.</span>
-          </div>
-          <div>
-            <a href="https://www.ich.org/" target="_blank"
-               style="font-size:12px;color:#1976D2;text-decoration:none;">
-              🔗 https://www.ich.org/
-            </a>
-          </div>
-        </div>
-        <div style="background:#fff;border-radius:8px;padding:18px 22px;margin-bottom:14px;
-                    border-left:4px solid #4A148C;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="font-size:15px;font-weight:700;color:#4A148C;margin-bottom:6px;">
-            ICH M4Q(R2) — CTD Quality Module mock example published
-          </div>
-          <div style="margin-bottom:8px;">
-            <span style="font-size:12px;color:#666;margin-right:14px;">📅 13 Feb 2026</span>
-            <span style="background:#1B5E20;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-right:6px;">GxP & Quality</span>
-          </div>
-          <div style="font-size:13.5px;color:#333;line-height:1.65;margin-bottom:10px;">
-            ICH M4Q(R2) Expert Working Group published a mock example illustrating revised Modules 2.3 and 3 of the CTD Quality section. Covers overall control strategy, development summary, lifecycle management, and quality benefit-risk assessment.
-          </div>
-          <div style="background:#FFFBF0;border-radius:6px;padding:10px 14px;margin-bottom:10px;
-                      border-left:3px solid #F9A825;">
-            <span style="font-size:12px;font-weight:700;color:#B7710A;">💼 BD Angle: </span>
-            <span style="font-size:12.5px;color:#7A5000;font-style:italic;">Clients preparing CTD submissions should review M4Q(R2) structure early to avoid rework.</span>
-          </div>
-          <div>
-            <a href="https://www.gmp-compliance.org/gmp-news/ich-m4q-guideline-updated" target="_blank"
-               style="font-size:12px;color:#1976D2;text-decoration:none;">
-              🔗 https://www.gmp-compliance.org/gmp-news/ich-m4q-guideline-updated
-            </a>
-          </div>
-        </div>
-        <div style="background:#fff;border-radius:8px;padding:18px 22px;margin-bottom:14px;
-                    border-left:4px solid #4A148C;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="font-size:15px;font-weight:700;color:#4A148C;margin-bottom:6px;">
-            ICH E6(R3) (Good Clinical Practice) — implementation analysis published
-          </div>
-          <div style="margin-bottom:8px;">
-            <span style="font-size:12px;color:#666;margin-right:14px;">📅 17 Feb 2026</span>
-            <span style="background:#1B5E20;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-right:6px;">GxP & Quality</span>
-          </div>
-          <div style="font-size:13.5px;color:#333;line-height:1.65;margin-bottom:10px;">
-            Industry deep-dive on E6(R3) GCP implementation published. Effective in Europe since July 2025, FDA guidance issued September 2025. Introduces risk-based quality management, decentralised trial designs, and digital tools (eTMF, CTMS).
-          </div>
-          <div style="background:#FFFBF0;border-radius:6px;padding:10px 14px;margin-bottom:10px;
-                      border-left:3px solid #F9A825;">
-            <span style="font-size:12px;font-weight:700;color:#B7710A;">💼 BD Angle: </span>
-            <span style="font-size:12.5px;color:#7A5000;font-style:italic;">CROs and sponsors implementing E6(R3) need QMS updates, training, and system validation.</span>
-          </div>
-          <div>
-            <a href="https://acrpnet.org/2026/02/17/ich-e6r3-unpacked-diving-deep-into-the-impacts-of-the-guideline-changes" target="_blank"
-               style="font-size:12px;color:#1976D2;text-decoration:none;">
-              🔗 https://acrpnet.org/2026/02/17/ich-e6r3-unpacked-diving-deep-into-the-impacts-of-the-guideline-changes
-            </a>
-          </div>
-        </div>
-    </div>
-    <div style="margin-bottom:36px;">
-      <div style="background:#FDECEA;border-radius:8px;padding:10px 18px;margin-bottom:16px;
-                  border-left:5px solid #8B1A1A;">
-        <span style="font-size:17px;font-weight:800;color:#8B1A1A;">EU Commission / EudraLex</span>
-        <span style="font-size:13px;color:#666;margin-left:10px;">2 updates</span>
-      </div>
-      
-        <div style="background:#fff;border-radius:8px;padding:18px 22px;margin-bottom:14px;
-                    border-left:4px solid #8B1A1A;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="font-size:15px;font-weight:700;color:#8B1A1A;margin-bottom:6px;">
-            New veterinary GMP regulations (EU) 2025/2091 & 2025/2154 — applicable July 16, 2026
-          </div>
-          <div style="margin-bottom:8px;">
-            <span style="font-size:12px;color:#666;margin-right:14px;">📅 17 Oct 2025 (applicable Jul 16, 2026)</span>
-            <span style="background:#1B5E20;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-right:6px;">GxP & Quality</span>
-          </div>
-          <div style="font-size:13.5px;color:#333;line-height:1.65;margin-bottom:10px;">
-            Two EU implementing regulations set separate GMP rules for veterinary medicinal products and their active substances, applicable July 16, 2026. Until then, EudraLex Volume 4 applies to both human and veterinary products.
-          </div>
-          <div style="background:#FFFBF0;border-radius:6px;padding:10px 14px;margin-bottom:10px;
-                      border-left:3px solid #F9A825;">
-            <span style="font-size:12px;font-weight:700;color:#B7710A;">💼 BD Angle: </span>
-            <span style="font-size:12.5px;color:#7A5000;font-style:italic;">Clients in veterinary pharma manufacturing need transition planning in H1 2026.</span>
-          </div>
-          <div>
-            <a href="https://health.ec.europa.eu/medicinal-products/eudralex/eudralex-volume-4_en" target="_blank"
-               style="font-size:12px;color:#1976D2;text-decoration:none;">
-              🔗 https://health.ec.europa.eu/medicinal-products/eudralex/eudralex-volume-4_en
-            </a>
-          </div>
-        </div>
-        <div style="background:#fff;border-radius:8px;padding:18px 22px;margin-bottom:14px;
-                    border-left:4px solid #8B1A1A;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="font-size:15px;font-weight:700;color:#8B1A1A;margin-bottom:6px;">
-            Joint EMA-PIC/S consultation on Annex 6 & Annex 15 (Feb 11 – Apr 11, 2026)
-          </div>
-          <div style="margin-bottom:8px;">
-            <span style="font-size:12px;color:#666;margin-right:14px;">📅 11 Feb 2026</span>
-            <span style="background:#1B5E20;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-right:6px;">GxP & Quality</span>
-          </div>
-          <div style="font-size:13.5px;color:#333;line-height:1.65;margin-bottom:10px;">
-            Joint EMA–PIC/S public consultation on revisions to Annex 6 (Medicinal Gases) and Annex 15 (Qualification and Validation) runs until 11 April 2026. Annex 6 updated for new computerised system technologies; Annex 15 extended to AS manufacturers.
-          </div>
-          <div style="background:#FFFBF0;border-radius:6px;padding:10px 14px;margin-bottom:10px;
-                      border-left:3px solid #F9A825;">
-            <span style="font-size:12px;font-weight:700;color:#B7710A;">💼 BD Angle: </span>
-            <span style="font-size:12.5px;color:#7A5000;font-style:italic;">Recommend clients comment — especially API manufacturers. Participation builds regulatory credibility.</span>
-          </div>
-          <div>
-            <a href="https://health.ec.europa.eu/consultations/public-consultation-revision-eu-commission-guidelines-good-manufacturing-practice-medicinal-products_en" target="_blank"
-               style="font-size:12px;color:#1976D2;text-decoration:none;">
-              🔗 https://health.ec.europa.eu/consultations/public-consultation-revision-eu-commission-guidelines-good-manufacturing-practice-medicinal-products_en
-            </a>
-          </div>
-        </div>
-    </div>
-  </div>
-
-</div>
+</main>
 
 <footer>
-  Disclaimer: This report is generated automatically from publicly available regulatory sources and is
-  intended as a weekly scanning tool for awareness purposes. Always verify information directly with
-  the issuing authority (FDA, EMA, ICH, EU Commission). Not intended as legal or regulatory advice.
+  <div class="wrap">
+    <p>Generated 03 September 2026 &middot; <a href="https://michielh84.github.io/gxp-radar">michielh84.github.io/gxp-radar</a></p>
+    <p>Automated weekly scan. Always verify against the primary source before acting or citing.</p>
+  </div>
 </footer>
 
-<div class="copy-toast" id="toast">Copied to clipboard!</div>
-
 <script>
-  function copyPost(btn) {
-    const text = btn.getAttribute('data-text');
-    navigator.clipboard.writeText(text).then(() => {
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2000);
-    });
-  }
+document.querySelectorAll('.tab').forEach(function (t) {
+  t.addEventListener('click', function () {
+    document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
+    document.querySelectorAll('.panel').forEach(function (p) { p.classList.remove('active'); });
+    t.classList.add('active');
+    document.getElementById(t.dataset.panel).classList.add('active');
+  });
+});
+document.querySelectorAll('.copy-btn').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var el = document.getElementById('post-' + b.dataset.idx);
+    var txt = el.getAttribute('data-text');
+    var done = function () {
+      b.textContent = 'Copied';
+      b.classList.add('done');
+      setTimeout(function () { b.textContent = 'Copy'; b.classList.remove('done'); }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(done).catch(function () { fallback(txt, done); });
+    } else { fallback(txt, done); }
+  });
+});
+function fallback(txt, cb) {
+  var ta = document.createElement('textarea');
+  ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); cb(); } catch (e) {}
+  document.body.removeChild(ta);
+}
 </script>
-
 </body>
 </html>
